@@ -1,5 +1,5 @@
 # PtraceSyscallHooker
 Some fun and games with ptrace.
 
-# Strace
+## Strace
 Simple implementation of the strace util.

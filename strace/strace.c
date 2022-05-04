@@ -19,7 +19,6 @@ const char *sysent[] = {
 };
 
 int main(int argc, char **argv) {
-    
     if (argc != 2) {
         FATAL("Usage: ./strace <BINARY_PATH>\n");
     }
@@ -40,7 +39,7 @@ int main(int argc, char **argv) {
        FATAL("execve() failed");
     }
 
-    waitpid(child_pid, 0, 0); // sync with execvp
+    waitpid(child_pid, 0, 0);
 
     // the tracee should be terminated along with its parent.
     ptrace(PTRACE_SETOPTIONS, child_pid, 0, PTRACE_O_EXITKILL);
@@ -89,16 +88,4 @@ int main(int argc, char **argv) {
         // Print system call result */
         printf(" = %ld\n", (long)regs.rax);
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }

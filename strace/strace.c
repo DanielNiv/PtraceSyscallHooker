@@ -31,12 +31,12 @@ int main(int argc, char **argv) {
         FATAL("fork faild");
 
     case 0:
-        ptrace(PTRACE_TRACEME, NULL, NULL, NULL);
+	ptrace(PTRACE_TRACEME, NULL, NULL, NULL);
 
         /* Because we're now a tracee, execvp will block until the parent
         * attaches and allows us to continue. */
-       execvp(argv[1], argv + 1);
-       FATAL("execve() failed");
+	execvp(argv[1], argv + 1);
+	FATAL("execve() failed");
     }
 
     waitpid(child_pid, 0, 0);
